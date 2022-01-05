@@ -35,7 +35,6 @@ const Banner = () => {
                         </div>
                         <div className='checkBtn'>
                             <button className='button'>Check it out</button> <span className='freeText'>It’s free</span>
-
                         </div>
                         </div>
                     </div>

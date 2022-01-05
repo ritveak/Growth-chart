@@ -1,0 +1,170 @@
+.section{
+    background: #F9F9FB;
+    display:grid;
+    place-items: center;
+}
+
+h1{
+    align-items: center;
+}
+
+p{
+    margin: 0px;
+}
+
+.heading{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.headingH1{
+    margin: auto;
+    padding: 0%;
+}
+.headingH1 h1{
+    margin: 0%;
+    margin-top:5vw;
+    font-weight: 600;
+      font-size: 2.25rem;
+}
+.headingP{
+    margin: auto;
+    padding: 0%;
+   
+}
+.headingP p{
+    margin: auto;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+.greySection{
+    background: #F0EFFE;
+    border: 2px solid white;
+    margin-top: 5vh;
+    width: 75vw;
+    border-radius:25px;
+    }
+
+.greySectionHeading{
+    padding-top:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.greySectionHeading h1{
+    margin-left: 1vw;
+}
+
+.greySectionContent{
+    margin-top:4vh;
+    display: block;
+    align-items:flex-start;
+    justify-content: flex-start;
+    float:left;
+}
+
+.greySectionContent::after{
+    clear: both;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+.left::after, .right::after{
+    clear:both;
+}
+
+.pointer{
+    display: flex;
+    margin-top: 2vh;
+    padding-left: 2vw;
+
+}
+.pointerHead{
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.pointerContent{
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+.icon{
+    width: 50px;
+    margin-right:10px;
+}
+.imageHolder{
+    float:right;
+
+}
+.image{
+    width: 20vw;
+}
+.tryBtn{
+    width: 100%;
+    display: grid;
+    align-items:center;
+    justify-content: center;
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+}
+.tryButton{
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 500;
+    font-size: 1rem;
+    background: #4EF2A3;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: 1px solid white;
+    color: #444444;
+    margin: auto;
+}
+.goTop{
+    width: 100%;
+    display: grid;
+    align-items:center;
+    justify-content: center;
+}
+
+@media(max-width:1100px) {
+    .greySection{
+        width:95vw;
+    }
+     .image{
+      width: 0%;
+    }
+    .greySectionContent{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width:100%;
+    }
+    .left{
+        padding: 10px;
+    }
+    /* .icon{
+        width: 30px;
+        margin-right:8px;
+    } */
+  }
+
+  @media(max-width:1200px) {
+    .greySection{
+        width:80vw;
+    }
+  }
+  @media(max-width: 530px){
+    .greySection{
+        width:100vw;
+    }
+    /* .icon{
+        width:20px;
+        margin-right:5px;
+    } */
+  }
