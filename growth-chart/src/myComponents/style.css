@@ -1,0 +1,30 @@
+#section{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    align-items: center;
+}
+
+p{
+    margin: 0px;
+}
+#banner{
+background: #F0EFFE;
+width: 100%;
+padding:50px;
+border-radius:25px;
+}
+
+#heading{
+    padding-top:50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#icon{
+    width: 80px;
+    margin-right:10px;
+}
