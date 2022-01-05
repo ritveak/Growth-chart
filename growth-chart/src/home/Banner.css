@@ -18,11 +18,9 @@
   background-size: auto;
   background-repeat: repeat no-repeat;
   background-position: 49vw bottom;
-  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200  128' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 94L50 88C100 82 200 71 300 48C400 25 500 -10 600 2C700 13 800 71 900 94C1000 117 1100 105 1150 100L1200 94V129H1150C1100 129 1000 129 900 129C800 129 700 129 600 129C500 129 400 129 300 129C200 129 100 129 50 129H0V94Z' fill='%23FFFFFF'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200  128' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 94L50 88C100 82 200 71 300 48C400 25 500 -10 600 2C700 13 800 71 900 94C1000 117 1100 105 1150 100L1200 94V129H1150C1100 129 1000 129 900 129C800 129 700 129 600 129C500 129 400 129 300 129C200 129 100 129 50 129H0V94Z' fill='%23F9F9FB'/></svg>");
 }
 .navBar{
-  position: fixed;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
