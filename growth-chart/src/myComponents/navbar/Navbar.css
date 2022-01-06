@@ -1,0 +1,58 @@
+.navBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+}
+.logoIcon{
+    width:5px;
+    height: 5px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 0 16px #4EF2A3, 0 0 0 17px white, 0 0 50px 18px #4EF2A3;
+    margin-right: 30px;
+    display: grid;
+    place-items: center;
+}
+.logoGroup{
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+.logoVector{
+    transform: translate(-11px,-10px);
+}
+.logoText h2 {
+        font-size: 2rem;
+        font-weight: 500;
+        z-index: 2;
+        white-space: nowrap;
+}
+.menuLinks{
+    margin-right: 10%;
+}
+.menuItems{
+    display: flex;
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-weight: 300;
+    line-height: 1.25rem;
+  }
+  .menuItems li h3{
+    font-weight: 400;
+  }
