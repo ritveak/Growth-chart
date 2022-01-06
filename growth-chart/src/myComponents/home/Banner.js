@@ -1,7 +1,5 @@
 import React from 'react'
 import './Banner.css'
-import vector from './images/vector.png'
-import illustration from './images/illustration.png'
 const Banner = () => {
     return (
         <div>
@@ -10,7 +8,7 @@ const Banner = () => {
                     <div className='logo'>
                         <div className='logoGroup'>
                             <div className='logoIcon'>
-                            <div className='logoVector'><img src={vector} alt=''></img></div>
+                            <div className='logoVector'><img src="../images/vector.png" alt=''></img></div>
                             </div>
                         </div>
                         <div className='logoText'><h2>Tool Hub</h2></div>
@@ -39,7 +37,7 @@ const Banner = () => {
                         </div>
                     </div>
                     <div className='introIllustration'>
-                        <img className='ilImg' src={illustration} alt=''></img>
+                        <img className='ilImg' src="../images/illustration.png" alt=''></img>
                     </div>
                 </div>
             </div>

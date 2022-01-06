@@ -1,11 +1,10 @@
 import React from 'react'
-import Banner from './home/Banner'
-import Home from "./myComponents/Home";
+
+import HomePage from './myComponents/home/HomePage';
 const App = () => {
   return (
     <>
-    <Banner/>
-    <Home/>
+    <HomePage/>
     </>
   )
   }
