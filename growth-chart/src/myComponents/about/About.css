@@ -1,0 +1,134 @@
+*{
+    color: #1b1b1b;
+}
+.div{ position: absolute}
+.bgDiv{
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+}
+.contentAbout{
+    display: grid;
+    place-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.overlayBg{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, transparent 0%,#F6F5FE 60%, white 100%);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.containerAbout{
+    width: 100%;
+    height: 89%;
+    overflow: hidden;
+    position: absolute;
+}
+.containerTitle{
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 2rem;
+    position: absolute;
+    transform: translate(0, 5vh);
+}
+.containerBg{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 0 0 0 100px #F6F5FE,
+                0 0 0 200px white,
+                0 0 0 300px #F6F5FE,
+                0 0 0 400px white,
+                0 0 0 500px #F6F5FE,
+                0 0 0 600px white,
+                0 0 0 700px #F6F5FE,
+                0 0 0 800px white
+}
+.creators{
+    width: 90%;
+    background: white;
+    border: 2.5px solid #9F9DFF;
+    border-radius: 20px;
+    transform: translate(0, 15vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.feedback{
+    width: 50%;
+    height: 20%;
+    background: white;
+    border: 2.5px solid #9F9DFF;
+    border-radius: 20px;
+    transform: translate(0, 21vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.creator{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.creatorsImg{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1vh;
+    width: 60%;
+}
+.usrImg{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+.userTitle{
+ font-size: 1.2rem;  
+ font-weight: 600; 
+}
+.userSubtitle{
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+.creatorsMsg{
+    padding: 2vh 20vh;
+}
+.creatorsMsg::before{
+    width: 10px;
+    height: 10px;
+    content: '"';
+    font-size: 4rem;
+    font-weight: 600;
+    position: absolute;
+    transform:translate(-40px,-20px)
+}
+.creatorsMsg::after{
+    width: 10px;
+    height: 10px;
+    content: '"';
+    font-size: 4rem;
+    font-weight: 600;
+    position: relative;
+    right: -100%;
+}
+.feedbackTitle{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.feedbacksubTitle{
+    font-weight: 400;
+    font-size: 1rem;
+}
