@@ -50,10 +50,14 @@
                 0 0 0 500px #F6F5FE,
                 0 0 0 600px white,
                 0 0 0 700px #F6F5FE,
-                0 0 0 800px white
+                0 0 0 800px white,
+                0 0 0 900px #F6F5FE,
+                0 0 0 1000px white,
+                0 0 0 1100px #F6F5FE,
+                0 0 0 1200px white
 }
 .creators{
-    width: 90%;
+    width: 80%;
     background: white;
     border: 2.5px solid #9F9DFF;
     border-radius: 20px;
@@ -64,7 +68,7 @@
     align-items: center;
 }
 .feedback{
-    width: 50%;
+    width: 40%;
     height: 20%;
     background: white;
     border: 2.5px solid #9F9DFF;
@@ -104,7 +108,7 @@
     font-weight: 400;
 }
 .creatorsMsg{
-    padding: 2vh 20vh;
+    padding: 2vh 30vh;
 }
 .creatorsMsg::before{
     width: 10px;
@@ -123,6 +127,7 @@
     font-weight: 600;
     position: relative;
     right: -100%;
+    bottom: 10%;
 }
 .feedbackTitle{
     font-weight: 600;
