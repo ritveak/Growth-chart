@@ -2,8 +2,11 @@ import React from 'react'
 import Banner from '../common/Banner';
 import GrowthChart from './GrowthChart';
 import chartData from './ChartData';
+import Rows from './Rows';
 
 // const [data,setMenu] = useState(chartData);
+
+const GrowthChartToolPage = () => {
 
 const bannerData =
     {
@@ -14,13 +17,14 @@ const bannerData =
       btnSideText:"",
     };
 
-const GrowthChartToolPage = () => {
     return (
         <div>
             <Banner data={bannerData} />
             <div>Growth Banner</div>
             <div>Growth calculator Fields</div>
-            <GrowthChart chartData={chartData} />
+            <Rows chartData={chartData} />
+            <GrowthChart chartData={chartData}  />
+            
         </div>
     )
 }

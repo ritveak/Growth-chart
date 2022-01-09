@@ -1,0 +1,7 @@
+.chartContainer{
+    display:grid;
+    place-items: center;
+}
+.chart{
+    width: 90vw;
+}

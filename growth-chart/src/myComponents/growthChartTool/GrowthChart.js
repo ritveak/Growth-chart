@@ -1,27 +1,31 @@
 
 import "chart.js/auto";
 import { Chart } from "react-chartjs-2";
+import "./GrowthChart.css";
 
 
 const GrowthChart = ({chartData}) => {
     return (
-        <div>
+        <div className="chartContainer">
+          <div className="chart">
               <Chart
-        type="line"
-        data={chartData}
-        options= {{
-            responsive: true,
-            plugins: {
-              legend: {
-                position: 'top',
-              },
-              title: {
-                display: true,
-                text: 'Professional Growth Chart'
-              }
-            }
-          }}
-      />
+              height={100}
+                type="line"
+                data={chartData}
+                options= {{
+                    responsive: true,
+                    plugins: {
+                      legend: {
+                        position: 'top',
+                      },
+                      title: {
+                        display: true,
+                        text: 'Professional Growth Chart'
+                      }
+                    }
+                  }}
+                />
+          </div>
         </div>
     )
 }
