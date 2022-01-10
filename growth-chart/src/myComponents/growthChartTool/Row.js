@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../growthChartTool/Row.css'
     // const updateSalary=(event,index)=>{
     //     let updatedRowsData = rowsData;
     //     updatedRowsData.rowsData[index].sal= event.target.value;
@@ -11,7 +11,7 @@ const Row = (props) => {
         <div>
             <p>{props.year}-{props.sal}LPA</p>
             <input value={props.sal} type='number' onChange={props.updateSalary}/>
-            <button onClick={props.deleteRow}>Del</button>
+            <button className='rowbtn' onClick={props.deleteRow}>Del</button>
             <p></p>
         </div>
     )

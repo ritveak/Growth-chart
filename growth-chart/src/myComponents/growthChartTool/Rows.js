@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import Row from './Row';
+import '../growthChartTool/Rows.css'
 
 const Rows = (chartData) => {
     const rdata = [{year:2020,sal:10, raise:20},{year:2021,sal:12,raise:10}];
@@ -42,12 +43,12 @@ const Rows = (chartData) => {
 
     return (
         <div>
-
+            <div className='formGrp'>
             <input type='number' value={year} onChange={(event)=>setYear(parseInt(event.target.value))} placeholder='Year'/>
             <input type='number' value={sal} onChange={(event)=>setSal(parseInt(event.target.value))} placeholder='Salary'/>
             <input type='number' value={raise} onChange={(event)=>setRaise(parseInt(event.target.value))} placeholder='Raise'/>
-            <button onClick={addRow}>Add</button>
-
+            <button className='btn' onClick={addRow}>Add</button>
+            </div>
             {rowsData.map( (currElement,index)=>{
                 return <Row key={index} 
                 year={currElement.year} 

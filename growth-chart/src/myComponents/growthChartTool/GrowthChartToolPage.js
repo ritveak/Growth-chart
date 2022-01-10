@@ -3,7 +3,7 @@ import Banner from '../common/Banner';
 import GrowthChart from './GrowthChart';
 import chartData from './ChartData';
 import Rows from './Rows';
-
+import '../growthChartTool/GrowthChartToolPage.css'
 // const [data,setMenu] = useState(chartData);
 
 const GrowthChartToolPage = () => {
@@ -18,10 +18,10 @@ const bannerData =
     };
 
     return (
-        <div>
+        <div className='growthFormContainer'>
             <Banner data={bannerData} />
-            <div>Growth Banner</div>
-            <div>Growth calculator Fields</div>
+            <div className='growthFormTitle'>Growth Banner</div>
+            <div className='growthFormsubTitle'>Growth calculator Fields</div>
             <Rows chartData={chartData} />
             <GrowthChart chartData={chartData}  />
             
