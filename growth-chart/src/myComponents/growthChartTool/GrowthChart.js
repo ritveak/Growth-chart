@@ -8,46 +8,78 @@ import {
   Tooltip,
   Legend
 } from "recharts";
-const data = [
+
+const cdata = [
   {
-    name: "2021",
-    uv: 10,
-    pv: 12,
-    amt: 5
+    year: "2021",
+    1: 10,
+    2: 12,
   },
   {
-    name: "2022",
-    uv: 11,
-    pv: 14,
-    amt: 6
+    year: "2022",
+    1: 11,
+    2: 14,
   },
-  {
-    name: "2023",
-    uv: 13,
-    pv: 16,
-    amt: 8
-  },
-  {
-    name: "2024",
-    uv: 18,
-    pv: 20,
-    amt: 15
-  },
-  {
-    name: "2025",
-    uv: 22,
-    pv: 26,
-    amt: 20
-  },
+  // {
+  //   year: "2023",
+  //   1: 13,
+  //   2: 16,
+  // },
+  // {
+  //   year: "2024",
+  //   1: 18,
+  //   2: 20,
+  // },
+  // {
+  //   year: "2025",
+  //   1: 22,
+  //   2: 26,
+  // },
 ];
-const GrowthChart = ({chartData}) => {
-    return (
+
+
+const GrowthChart = ({data,dataUpdater}) => {
+  console.log(data);
+
+
+const getData=()=>{
+    var yearMap = new Map();
+    for(var i =0;i<data.length;i++){
+      for(var j=0;j<data[i].length;j++){
+        var year = data[i][j].year;
+        var sal = data[i][j].sal;
+        if(yearMap.get(year)){
+          var salArray = yearMap.get(year);
+          salArray.push(sal);
+          yearMap.set(year,salArray);
+
+        }else{
+          yearMap.set(year,[sal]);
+        }
+      }
+    }
+
+    var formattedData = [];
+    yearMap.forEach((value,key)=>{
+      var obj = {};
+      obj["year"] = key;
+      for(var i =0;i<value.length;i++){
+        obj[i+1]=value[i];
+      }
+      formattedData.push(obj);
+       
+    });
+    return formattedData;
+
+}
+  return (
         <div className="chartContainer">
           <div className="chart">
+            <button onClick={getData} >Check states</button>
           <LineChart
       width={1000}
       height={300}
-      data={data}
+      data={getData()}
       margin={{
         top: 5,
         right: 30,
@@ -56,13 +88,13 @@ const GrowthChart = ({chartData}) => {
       }}
     >
       {/* <CartesianGrid strokeDasharray="3 3" /> */}
-      <XAxis dataKey="name" />
+      <XAxis dataKey="year" />
       <YAxis />
       <Tooltip />
       <Legend />
-      <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }}/>
-      <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-      <Line type="monotone" dataKey="amt" stroke="#82ca9d" />
+      <Line type="monotone" dataKey="1" stroke="#8884d8" activeDot={{ r: 8 }}/>
+      <Line type="monotone" dataKey="2" stroke="#82ca9d" />
+      <Line type="monotone" dataKey="3" stroke="#FF6676" />
 
     </LineChart>
           </div>

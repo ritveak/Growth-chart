@@ -2,44 +2,47 @@ import React,{useState} from 'react'
 import Row from './Row';
 import '../growthChartTool/Rows.css'
 
-const Rows = (chartData) => {
-    const rdata = [{year:2020,sal:10, raise:20},{year:2021,sal:12,raise:10}];
-    const [rowsData,setRowsData] = useState(rdata);
+const Rows = ({data, dataUpdater}) => {
+    
+    // const rdata = [{year:2020,sal:10, raise:20},{year:2021,sal:12,raise:10}];
+    console.log(data);
+    // console.log(chartData.chartData[0]);
+
     const [year,setYear] = useState();
     const [sal,setSal] = useState();
     const [raise,setRaise] = useState();
     const [toYear,setToYear] = useState();
 
     
-    const updateSalary=(event,index)=>{
-        var updatedRowsData =[...rowsData];
-        updatedRowsData[index].sal= parseInt(event.target.value);
-        setRowsData(updatedRowsData);
+    const updateSalary=(event,index,position)=>{
+        var updatedRowsData =[...data];
+        updatedRowsData[position][index].sal= parseInt(event.target.value);
+        dataUpdater(updatedRowsData);
         console.log(event.target.value);
     }
-    const updateRaise=(event,index)=>{
-        var updatedRowsData =[...rowsData];
-        updatedRowsData[index].raise= parseInt(event.target.value);
-        setRowsData(updatedRowsData);
+    const updateRaise=(event,index,position)=>{
+        var updatedRowsData =[...data];
+        updatedRowsData[position][index].raise= parseInt(event.target.value);
+        dataUpdater(updatedRowsData);
     }
 
-    const deleteRow=(index)=>{
-        let updatedRowsData = [...rowsData];
-        updatedRowsData.splice(index,1);
-        setRowsData(updatedRowsData);
+    const deleteRow=(index,position)=>{
+        let updatedRowsData = [...data];
+        updatedRowsData[position].splice(index,1);
+        dataUpdater(updatedRowsData);
     }
 
     const addRow=()=>{
-        let updatedRowsData = [...rowsData];
+        let updatedRowsData = [...data];
         var newRow = {};
         newRow.year = year;
         newRow.sal = sal;
         newRow.raise = raise;
-        updatedRowsData.push(newRow)
-        setRowsData(updatedRowsData);
+        updatedRowsData[0].push(newRow)
+        dataUpdater(updatedRowsData);
         // setLastChanged(new Date()+"Added new row.")
         setTimeout(1000);
-        console.log(rowsData)
+        console.log(data)
     }
 
     return (
@@ -52,17 +55,29 @@ const Rows = (chartData) => {
 
             <button className='btn' onClick={addRow}>Add</button>
             </div>
-            {rowsData.map( (currElement,index)=>{
-                return <Row key={index} 
-                year={currElement.year} 
-                sal ={currElement.sal}
-                raise = {currElement.raise} 
-                deleteRow ={()=>{deleteRow(index)}}
-                updateSalary = {(event)=>{updateSalary(event,index)}}
-                updateRaise = {(event)=>{updateRaise(event,index)}}
+            {
+                data.map((element,position) => 
+                {
+                    return(<>
+                                {/* <button onClick={addRow(position)}>Add row in {position}</button> */}
 
-                />     
-            } )}
+                            {
+                                element.map( (currElement,index)=>
+                                {
+                                    return <Row key={index} 
+                                    year={currElement.year} 
+                                    sal ={currElement.sal}
+                                    raise = {currElement.raise} 
+                                    deleteRow ={()=>{deleteRow(index,position)}}
+                                    updateSalary = {(event)=>{updateSalary(event,index,position)}}
+                                    updateRaise = {(event)=>{updateRaise(event,index,position)}}
+                                    />
+                                })
+                            }
+                        </>)
+                
+                })
+            }
 
             
         </div>
