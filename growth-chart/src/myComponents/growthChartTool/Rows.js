@@ -44,7 +44,7 @@ const Rows = (chartData) => {
     return (
         <div>
             <div className='formGrp'>
-            <input type='number' value={year} onChange={(event)=>setYear(parseInt(event.target.value))} placeholder='Year'/>
+            <input type='month' value={year} onChange={(event)=>setYear(event.target.value.split('-')[0])} placeholder='Year'/>
             <input type='number' value={sal} onChange={(event)=>setSal(parseInt(event.target.value))} placeholder='Salary'/>
             <input type='number' value={raise} onChange={(event)=>setRaise(parseInt(event.target.value))} placeholder='Raise'/>
             <button className='btn' onClick={addRow}>Add</button>
