@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import Banner from '../common/Banner';
 import GrowthChart from './GrowthChart';
 import chartData from './ChartData';
@@ -7,6 +7,8 @@ import '../growthChartTool/GrowthChartToolPage.css'
 // const [data,setMenu] = useState(chartData);
 
 const GrowthChartToolPage = () => {
+
+    const [rowsData,setRowsData] = useState(chartData);
 
 const bannerData =
     {
@@ -22,8 +24,8 @@ const bannerData =
             <Banner data={bannerData} />
             <div className='growthFormTitle'>Growth Banner</div>
             <div className='growthFormsubTitle'>Growth calculator Fields</div>
-            <Rows chartData={chartData} />
-            <GrowthChart chartData={chartData}  />
+            <Rows data={rowsData} dataUpdater={setRowsData} />
+            <GrowthChart  data={rowsData} dataUpdater={setRowsData}  />
             
         </div>
     )

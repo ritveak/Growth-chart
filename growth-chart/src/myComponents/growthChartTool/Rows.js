@@ -2,43 +2,47 @@ import React,{useState} from 'react'
 import Row from './Row';
 import '../growthChartTool/Rows.css'
 
-const Rows = (chartData) => {
-    const rdata = [{year:2020,sal:10, raise:20},{year:2021,sal:12,raise:10}];
-    const [rowsData,setRowsData] = useState(rdata);
-    const [lastChanged,setLastChanged] = useState('');
+const Rows = ({data, dataUpdater}) => {
+    
+    // const rdata = [{year:2020,sal:10, raise:20},{year:2021,sal:12,raise:10}];
+    console.log(data);
+    // console.log(chartData.chartData[0]);
+
     const [year,setYear] = useState();
     const [sal,setSal] = useState();
     const [raise,setRaise] = useState();
+    const [toYear,setToYear] = useState();
 
-    const updateSalary=(event,index)=>{
-        var updatedRowsData = new Object();
-        updatedRowsData =  rowsData;
-        updatedRowsData[index].sal= parseInt(event.target.value);
-        setRowsData(updatedRowsData);
-        setLastChanged(event.target.value)
-        console.log(new Date()+"Updated row - "+rowsData)
-        console.log(lastChanged)
-
+    
+    const updateSalary=(event,index,position)=>{
+        var updatedRowsData =[...data];
+        updatedRowsData[position][index].sal= parseInt(event.target.value);
+        dataUpdater(updatedRowsData);
+        console.log(event.target.value);
+    }
+    const updateRaise=(event,index,position)=>{
+        var updatedRowsData =[...data];
+        updatedRowsData[position][index].raise= parseInt(event.target.value);
+        dataUpdater(updatedRowsData);
     }
 
-    const deleteRow=(index)=>{
-        let updatedRowsData = rowsData;
-        updatedRowsData.splice(index,1);
-        setRowsData(updatedRowsData);
-        setLastChanged(new Date()+"Deleted row.")
-        console.log(rowsData)
+    const deleteRow=(index,position)=>{
+        let updatedRowsData = [...data];
+        updatedRowsData[position].splice(index,1);
+        dataUpdater(updatedRowsData);
     }
 
     const addRow=()=>{
-        let updatedRowsData = rowsData;
+        let updatedRowsData = [...data];
         var newRow = {};
         newRow.year = year;
         newRow.sal = sal;
         newRow.raise = raise;
-        updatedRowsData.push(newRow)
-        setRowsData(updatedRowsData);
-        setLastChanged(new Date()+"Added new row.")
-        console.log(rowsData)
+        updatedRowsData[0].push(newRow)
+        dataUpdater(updatedRowsData);
+        // setLastChanged(new Date()+"Added new row.")
+        setTimeout(1000);
+        console.log(data)
     }
 
     return (
@@ -47,16 +51,33 @@ const Rows = (chartData) => {
             <input type='month' value={year} onChange={(event)=>setYear(event.target.value.split('-')[0])} placeholder='Year'/>
             <input type='number' value={sal} onChange={(event)=>setSal(parseInt(event.target.value))} placeholder='Salary'/>
             <input type='number' value={raise} onChange={(event)=>setRaise(parseInt(event.target.value))} placeholder='Raise'/>
+            <input type='number' value={toYear} onChange={(event)=>setToYear(parseInt(event.target.value))} placeholder='ToYear'/>
+
             <button className='btn' onClick={addRow}>Add</button>
             </div>
-            {rowsData.map( (currElement,index)=>{
-                return <Row key={index} 
-                year={currElement.year} 
-                sal ={currElement.sal} 
-                deleteRow ={()=>{deleteRow(index)}}
-                updateSalary = {(event)=>{updateSalary(event,index)}}
-                />     
-            } )}
+            {
+                data.map((element,position) => 
+                {
+                    return(<>
+                                {/* <button onClick={addRow(position)}>Add row in {position}</button> */}
+
+                            {
+                                element.map( (currElement,index)=>
+                                {
+                                    return <Row key={index} 
+                                    year={currElement.year} 
+                                    sal ={currElement.sal}
+                                    raise = {currElement.raise} 
+                                    deleteRow ={()=>{deleteRow(index,position)}}
+                                    updateSalary = {(event)=>{updateSalary(event,index,position)}}
+                                    updateRaise = {(event)=>{updateRaise(event,index,position)}}
+                                    />
+                                })
+                            }
+                        </>)
+                
+                })
+            }
 
             
         </div>
