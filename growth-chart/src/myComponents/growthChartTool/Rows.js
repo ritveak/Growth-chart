@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import Row from './Row';
 import '../growthChartTool/Rows.css'
+import GrowthChart from './GrowthChart';
 
 const Rows = ({data, dataUpdater}) => {
     
@@ -54,6 +55,9 @@ const Rows = ({data, dataUpdater}) => {
             <input type='number' value={toYear} onChange={(event)=>setToYear(parseInt(event.target.value))} placeholder='ToYear'/>
 
             <button className='btn' onClick={addRow}>Add</button>
+
+            <GrowthChart  data={data} dataUpdater={dataUpdater}  />
+
             </div>
             {
                 data.map((element,position) => 
