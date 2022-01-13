@@ -6,7 +6,6 @@ import GrowthChart from './GrowthChart';
 const Rows = ({data, dataUpdater}) => {
     
     // const rdata = [{year:2020,sal:10, raise:20},{year:2021,sal:12,raise:10}];
-    console.log(data);
     // console.log(chartData.chartData[0]);
 
     const [year,setYear] = useState();
@@ -18,15 +17,36 @@ const Rows = ({data, dataUpdater}) => {
     const updateSalary=(event,index,position)=>{
         var updatedRowsData =[...data];
         updatedRowsData[position][index].sal= parseInt(event.target.value);
+        reCalculate(updatedRowsData,index,position);
+
         dataUpdater(updatedRowsData);
         console.log(event.target.value);
     }
     const updateRaise=(event,index,position)=>{
         var updatedRowsData =[...data];
         updatedRowsData[position][index].raise= parseInt(event.target.value);
+        // for(var i= index+1;i<updatedRowsData[position].length;i++){
+        //     var lastSalary = updatedRowsData[position][i-1].sal;
+        //     console.log("last salary = "+lastSalary);
+        //     updatedRowsData[position][i].sal=getSalaryBasedOnRaise(lastSalary,raise);
+        //     raise = updatedRowsData[position][i].sal;
+        // }
+        reCalculate(updatedRowsData,index,position);
         dataUpdater(updatedRowsData);
     }
 
+    function reCalculate(array,index, position){
+        var raise = array[position][index].raise;
+
+        for(var i= index+1;i<array[position].length;i++){
+            var lastSalary = array[position][i-1].sal;
+            
+            array[position][i].sal=getSalaryBasedOnRaise(lastSalary,raise);
+            console.log("updated salary for " +i +" = "+ array[position][i].sal);
+            raise = array[position][i].raise;
+        }
+
+    }
     const deleteRow=(index,position)=>{
         let updatedRowsData = [...data];
         updatedRowsData[position].splice(index,1);
@@ -45,7 +65,7 @@ const Rows = ({data, dataUpdater}) => {
         for(var i =0;i<diff;i++){
             var newRow = {};
             newRow.year = lastYear+1;
-            newRow.sal = (lastSal*(1+(lastRaise/100))).toFixed(2);
+            newRow.sal = getSalaryBasedOnRaise(lastSal,lastRaise);
             newRow.raise = raise;
             newElements.push(newRow);
             lastYear=newRow.year;
@@ -63,9 +83,14 @@ const Rows = ({data, dataUpdater}) => {
         dataUpdater(updatedRowsData);
         // setLastChanged(new Date()+"Added new row.")
         setTimeout(1000);
-        console.log("-------------------");
-        console.log(updatedRowsData[0]);
-        console.log("-------------------");
+        // console.log("-------------------");
+        // console.log(updatedRowsData[0]);
+        // console.log("-------------------");
+    }
+
+    function getSalaryBasedOnRaise(lastSalary,raise){
+        console.log("lastSalary = "+lastSalary+", raise = "+raise);
+        return (lastSalary*(1+(raise/100))).toFixed(2);
     }
 
     return (

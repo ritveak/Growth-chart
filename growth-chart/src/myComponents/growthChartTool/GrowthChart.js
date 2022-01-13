@@ -39,8 +39,6 @@ const cdata = [
 
 
 const GrowthChart = ({data,dataUpdater}) => {
-  console.log(data);
-
 
 const getData=()=>{
     var yearMap = new Map();
