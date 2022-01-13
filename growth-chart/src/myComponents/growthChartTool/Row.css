@@ -12,3 +12,10 @@
       color: white;
       margin: 10px;
   }
+
+  .row{
+    border:1px solid black;
+    border-radius: 0.5px;
+    padding :5px;
+    margin-top:5px;
+  }

@@ -24,3 +24,9 @@ input{
       color: #444444;
       margin: 10px;
   }
+  .rowDiv{
+    background: #9fffd1;
+    border-radius: 0.5rem;
+    margin-top: 1vh;
+    padding:5px;
+  }

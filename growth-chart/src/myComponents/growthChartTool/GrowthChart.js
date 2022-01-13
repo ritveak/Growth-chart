@@ -94,7 +94,7 @@ const getData=()=>{
       <Legend />
       <Line type="monotone" dataKey="1" stroke="#8884d8" activeDot={{ r: 8 }}/>
       <Line type="monotone" dataKey="2" stroke="#82ca9d" />
-      <Line type="monotone" dataKey="3" stroke="#FF6676" />
+      {/* <Line type="monotone" dataKey="3" stroke="#FF6676" /> */}
 
     </LineChart>
           </div>

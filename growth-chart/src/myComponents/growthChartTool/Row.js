@@ -8,8 +8,8 @@ import '../growthChartTool/Row.css'
     // }
 const Row = (props) => {
     return (
-        <div>
-            <p>{props.year}-{props.sal}LPA-{props.raise}Raise</p>
+        <div className='row'>
+            <p>States - {props.year}-{props.sal}LPA-{props.raise}Raise</p>
             <span>salary</span><input value={props.sal} type='number' onChange={props.updateSalary}/>
             <span>Raise</span><input value={props.raise} type='number' onChange={props.updateRaise}/>
             <button className='rowbtn' onClick={props.deleteRow}>Del</button>
