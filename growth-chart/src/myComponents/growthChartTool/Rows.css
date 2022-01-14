@@ -10,6 +10,9 @@ input{
     padding: 1rem;
     background: #F0EFFE;
     border-radius: 1rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center
 }
 .btn {
     font-family: 'Poppins', sans-serif; 
@@ -25,8 +28,15 @@ input{
       margin: 10px;
   }
   .rowDiv{
-    background: #9fffd1;
-    border-radius: 0.5rem;
     margin-top: 1vh;
     padding:5px;
+    display: flex;
+    overflow-x: scroll;
+    width: 95vw;
+    font-size: 75%;
+  }
+  .chartDiv{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
   }
