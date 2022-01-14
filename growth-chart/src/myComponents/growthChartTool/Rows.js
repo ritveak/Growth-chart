@@ -94,15 +94,17 @@ const Rows = ({data, dataUpdater}) => {
     }
 
     return (
-        <div>
+        <div className='chartDiv'>
             <div className='formGrp'>
+            <div>
+
             <input type='number' value={year} onChange={(event)=>setYear(event.target.value)} placeholder='Year'/>
             <input type='number' value={sal} onChange={(event)=>setSal(parseInt(event.target.value))} placeholder='Salary'/>
             <input type='number' value={raise} onChange={(event)=>setRaise(parseInt(event.target.value))} placeholder='Raise'/>
             <input type='number' value={toYear} onChange={(event)=>setToYear(parseInt(event.target.value))} placeholder='ToYear'/>
 
             <button className='btn' onClick={addRow}>Add</button>
-
+            </div>
             <GrowthChart  data={data} dataUpdater={dataUpdater}  />
 
             </div>
@@ -112,7 +114,6 @@ const Rows = ({data, dataUpdater}) => {
                     return(<>
                             {/* <button onClick={addRow(position)}>Add row in {position}</button> */}
                             <div className='rowDiv'>
-                                <p>Position - {position}</p>
                                 {
                                     element.map( (currElement,index)=>
                                     {
