@@ -8,6 +8,7 @@ import '../growthChartTool/Row.css'
     // }
 const Row = (props) => {
     return (
+        <div>
         <div className='yearRow'>
             <div className='grpBox'>{props.year}</div>
             {/* <p>States - {props.year}-{props.sal}LPA-{props.raise}Raise</p> */}
@@ -20,6 +21,7 @@ const Row = (props) => {
             </div>
             <p></p>
             </div>
+        </div>
         </div>
     )
 }

@@ -1,6 +1,4 @@
-
-
-  .row{
+ .row{
     padding :5px;
     margin-top:5px;
     display: flex;
@@ -20,7 +18,6 @@
     width: 6vw;
     height: .5rem;
   }
-  
 .gridCell{
   background: #F0EFFE;
   padding: 0.25rem;
