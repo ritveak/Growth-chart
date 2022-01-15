@@ -12,7 +12,6 @@ const Rows = ({data, dataUpdater}) => {
     const [sal,setSal] = useState();
     const [raise,setRaise] = useState();
     const [toYear,setToYear] = useState();
-
     
     const updateSalary=(event,index,position)=>{
         var updatedRowsData =[...data];
@@ -47,9 +46,9 @@ const Rows = ({data, dataUpdater}) => {
         }
 
     }
-    const deleteRow=(index,position)=>{
+    const deleteRow=(position)=>{
         let updatedRowsData = [...data];
-        updatedRowsData[position].splice(index,1);
+        updatedRowsData.splice(position,1);
         dataUpdater(updatedRowsData);
     }
 
@@ -96,17 +95,19 @@ const Rows = ({data, dataUpdater}) => {
     return (
         <div className='chartDiv'>
             <div className='formGrp'>
-            <div>
+            
+                { 
+                    !data[0][0] ? 
+                    <div>
+                        <input type='number' value={year} onChange={(event)=>setYear(event.target.value)} placeholder='Year'/>
+                        <input type='number' value={sal} onChange={(event)=>setSal(parseInt(event.target.value))} placeholder='Salary'/>
+                        <input type='number' value={raise} onChange={(event)=>setRaise(parseInt(event.target.value))} placeholder='Raise'/>
+                        <input type='number' value={toYear} onChange={(event)=>setToYear(parseInt(event.target.value))} placeholder='ToYear'/>
 
-            <input type='number' value={year} onChange={(event)=>setYear(event.target.value)} placeholder='Year'/>
-            <input type='number' value={sal} onChange={(event)=>setSal(parseInt(event.target.value))} placeholder='Salary'/>
-            <input type='number' value={raise} onChange={(event)=>setRaise(parseInt(event.target.value))} placeholder='Raise'/>
-            <input type='number' value={toYear} onChange={(event)=>setToYear(parseInt(event.target.value))} placeholder='ToYear'/>
-
-            <button className='btn' onClick={addRow}>Add</button>
-            </div>
-            <GrowthChart  data={data} dataUpdater={dataUpdater}  />
-
+                        <button className='btn' onClick={addRow}>Add</button>
+                    </div> :          
+                    <GrowthChart  data={data} dataUpdater={dataUpdater}  />
+                }
             </div>
             {
                 data.map((element,position) => 
@@ -118,13 +119,13 @@ const Rows = ({data, dataUpdater}) => {
                                     element.map( (currElement,index)=>
                                     {
                                         return <Row key={index} 
-                                        year={currElement.year} 
-                                        sal ={currElement.sal}
-                                        raise = {currElement.raise} 
-                                        deleteRow ={()=>{deleteRow(index,position)}}
-                                        updateSalary = {(event)=>{updateSalary(event,index,position)}}
-                                        updateRaise = {(event)=>{updateRaise(event,index,position)}}
-                                        />
+                                            year={currElement.year} 
+                                            sal ={currElement.sal}
+                                            raise = {currElement.raise} 
+                                            deleteRow ={()=>{deleteRow(index,position)}}
+                                            updateSalary = {(event)=>{updateSalary(event,index,position)}}
+                                            updateRaise = {(event)=>{updateRaise(event,index,position)}}/>
+
                                     })
                                 }
                             </div>
