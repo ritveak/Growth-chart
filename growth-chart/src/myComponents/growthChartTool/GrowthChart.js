@@ -4,38 +4,37 @@ import {
   Line,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   Legend
 } from "recharts";
 
-const cdata = [
-  {
-    year: "2021",
-    1: 10,
-    2: 12,
-  },
-  {
-    year: "2022",
-    1: 11,
-    2: 14,
-  },
-  // {
-  //   year: "2023",
-  //   1: 13,
-  //   2: 16,
-  // },
-  // {
-  //   year: "2024",
-  //   1: 18,
-  //   2: 20,
-  // },
-  // {
-  //   year: "2025",
-  //   1: 22,
-  //   2: 26,
-  // },
-];
+// const cdata = [
+//   {
+//     year: "2021",
+//     1: 10,
+//     2: 12,
+//   },
+//   {
+//     year: "2022",
+//     1: 11,
+//     2: 14,
+//   },
+//   // {
+//   //   year: "2023",
+//   //   1: 13,
+//   //   2: 16,
+//   // },
+//   // {
+//   //   year: "2024",
+//   //   1: 18,
+//   //   2: 20,
+//   // },
+//   // {
+//   //   year: "2025",
+//   //   1: 22,
+//   //   2: 26,
+//   // },
+// ];
 
 
 const GrowthChart = ({data,dataUpdater}) => {
@@ -73,7 +72,6 @@ const getData=()=>{
   return (
         <div className="chartContainer">
           <div className="chart">
-            <button onClick={getData} >Check states</button>
           <LineChart
       width={1000}
       height={300}

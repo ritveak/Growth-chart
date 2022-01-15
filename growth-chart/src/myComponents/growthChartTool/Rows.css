@@ -6,6 +6,16 @@ input{
     font-size: 1rem;
     border-radius: .25rem;
 }
+.rowbtn {
+  border: none;
+  outline: none;
+  background: #ff6666;
+  border-radius: 10px;
+  border: 2px solid white;
+  color: white;
+  margin: 10px;
+}
+
 .formGrp {
     padding: 1rem;
     background: #F0EFFE;
