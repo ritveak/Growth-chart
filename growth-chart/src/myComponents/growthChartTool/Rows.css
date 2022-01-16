@@ -41,12 +41,38 @@ input{
     margin-top: 1vh;
     padding:5px;
     display: flex;
-    overflow-x: scroll;
-    width: 95vw;
     font-size: 75%;
+  
+    max-width: 98vw;}
+.dataRow{
+    overflow-x: scroll;
+    width: 100%;
+    display: flex;
+    margin: 0 2vw;
   }
   .chartDiv{
     display:flex;
     flex-direction: column;
     align-items: center;
+    padding: 2vh 0;
+  }
+  .gridCell{
+    background: #F0EFFE;
+    padding: 0.25rem;
+    width: 6vw;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    margin: 0.9vh 0;
+  }
+  .labels{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .dataGridContainer{
+    display: flex;
+    justify-content: center;
+    overflow-x:hidden;
   }
