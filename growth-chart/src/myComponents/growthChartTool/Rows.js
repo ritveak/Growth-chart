@@ -15,7 +15,7 @@ const Rows = ({data, dataUpdater}) => {
     
     const updateSalary=(event,index,position)=>{
         var updatedRowsData =[...data];
-        updatedRowsData[position][index].sal= parseInt(event.target.value);
+        updatedRowsData[position][index].sal= parseFloat(event.target.value);
         reCalculate(updatedRowsData,index,position);
 
         dataUpdater(updatedRowsData);
@@ -23,7 +23,7 @@ const Rows = ({data, dataUpdater}) => {
     }
     const updateRaise=(event,index,position)=>{
         var updatedRowsData =[...data];
-        updatedRowsData[position][index].raise= parseInt(event.target.value);
+        updatedRowsData[position][index].raise= parseFloat(event.target.value);
         // for(var i= index+1;i<updatedRowsData[position].length;i++){
         //     var lastSalary = updatedRowsData[position][i-1].sal;
         //     console.log("last salary = "+lastSalary);
@@ -105,9 +105,9 @@ const Rows = ({data, dataUpdater}) => {
                     data[0] && !data[0][0] ? 
                     <div>
                         <input type='number' value={year} onChange={(event)=>setYear(event.target.value)} placeholder='Year'/>
-                        <input type='number' value={sal} onChange={(event)=>setSal(parseInt(event.target.value))} placeholder='Salary'/>
-                        <input type='number' value={raise} onChange={(event)=>setRaise(parseInt(event.target.value))} placeholder='Raise'/>
-                        <input type='number' value={toYear} onChange={(event)=>setToYear(parseInt(event.target.value))} placeholder='ToYear'/>
+                        <input type='number' value={sal} onChange={(event)=>setSal(parseFloat(event.target.value))} placeholder='Salary'/>
+                        <input type='number' value={raise} onChange={(event)=>setRaise(parseFloat(event.target.value))} placeholder='Raise'/>
+                        <input type='number' value={toYear} onChange={(event)=>setToYear(parseFloat(event.target.value))} placeholder='ToYear'/>
 
                         <button className='btn' onClick={addRow}>Add</button>
                     </div> :          
