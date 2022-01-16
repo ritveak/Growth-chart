@@ -1,13 +1,12 @@
 import React ,{useState} from 'react'
 import Banner from '../common/Banner';
-import chartData from './ChartData';
 import Rows from './Rows';
 import '../growthChartTool/GrowthChartToolPage.css'
 // const [data,setMenu] = useState(chartData);
 
 const GrowthChartToolPage = () => {
 
-    const [rowsData,setRowsData] = useState(chartData);
+    const [rowsData,setRowsData] = useState([]);
 
 const bannerData =
     {
