@@ -3,5 +3,7 @@
     place-items: center;
 }
 .chart{
-    width: 90vw;
+    display: flex;
+    justify-content: center;
+    padding: 2vh;
 }

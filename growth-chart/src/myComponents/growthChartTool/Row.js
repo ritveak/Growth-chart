@@ -11,13 +11,10 @@ const Row = (props) => {
         <div>
         <div className='yearRow'>
             <div className='grpBox'>{props.year}</div>
-            {/* <p>States - {props.year}-{props.sal}LPA-{props.raise}Raise</p> */}
             <div className='row'>
             <div className='grpBox'>
-            <span className='gridCell'>Salary</span><input className='inputCell' value={props.sal} type='number' onChange={props.updateSalary}/>
-            </div>
-            <div className='grpBox'>
-            <span className='gridCell'>Raise</span><input className='inputCell' value={props.raise} type='number' onChange={props.updateRaise}/>
+            <input className='inputCell' value={props.sal} type='number' onChange={props.updateSalary}/>
+            <input className='inputCell' value={props.raise} type='number' onChange={props.updateRaise}/>
             </div>
             <p></p>
             </div>

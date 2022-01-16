@@ -1,6 +1,5 @@
  .row{
     padding :5px;
-    margin-top:5px;
     display: flex;
     justify-content: center;
   }
@@ -15,7 +14,7 @@
     align-items: center;
   }
   .inputCell{
-    width: 6vw;
+    width: 7vw;
     height: .5rem;
   }
 .gridCell{
