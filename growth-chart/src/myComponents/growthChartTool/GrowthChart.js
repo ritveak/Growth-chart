@@ -36,6 +36,17 @@ import {
 //   // },
 // ];
 
+const colors = [
+  '#4dc9f6',
+  '#f67019',
+  '#f53794',
+  '#537bc4',
+  '#acc236',
+  '#166a8f',
+  '#00a950',
+  '#58595b',
+  '#8549ba'
+];
 
 const GrowthChart = ({data,dataUpdater}) => {
 
@@ -96,8 +107,17 @@ const getData=()=>{
       <YAxis />
       <Tooltip />
       <Legend />
-      <Line type="monotone" dataKey="1" stroke="#8884d8" activeDot={{ r: 8 }}/>
-      <Line type="monotone" dataKey="2" stroke="#82ca9d" />
+      {
+         data.map((element,position) => {
+           return(<>
+         
+         <Line type="monotone" dataKey={position+1} stroke={colors[position]}/>
+         
+         </>
+         )})
+      }
+      {/* <Line type="monotone" dataKey="1" stroke="#8884d8" activeDot={{ r: 8 }}/>
+      <Line type="monotone" dataKey="2" stroke="#82ca9d" /> */}
       {/* <Line type="monotone" dataKey="3" stroke="#FF6676" /> */}
 
     </LineChart>
