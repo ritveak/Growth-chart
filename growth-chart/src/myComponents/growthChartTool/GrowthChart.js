@@ -45,26 +45,34 @@ const getData=()=>{
       for(var j=0;j<data[i].length;j++){
         var year = data[i][j].year;
         var sal = data[i][j].sal;
+        var salMap = new Map();
+        salMap.set(i,sal);
         if(yearMap.get(year)){
-          var salArray = yearMap.get(year);
-          salArray.push(sal);
-          yearMap.set(year,salArray);
+          var salMapArray = yearMap.get(year);
+          salMapArray.push(salMap);
+          yearMap.set(year,salMapArray);
 
         }else{
-          yearMap.set(year,[sal]);
+          yearMap.set(year,[salMap]);
         }
       }
     }
+    console.log("YearMap:")
+    console.log(yearMap);
 
     var formattedData = [];
     yearMap.forEach((value,key)=>{
       var obj = {};
       obj["year"] = key;
       for(var i =0;i<value.length;i++){
-        obj[i+1]=value[i];
+        value[i].forEach((v,k)=>{
+          obj[k+1] = v
+        })
+
       }
       formattedData.push(obj);
-       
+      console.log("formattedData:")
+      console.log(formattedData);
     });
     return formattedData;
 
