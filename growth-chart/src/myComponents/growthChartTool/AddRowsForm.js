@@ -2,10 +2,10 @@ import React,{useState} from 'react'
 
 const AddRowsForm = (props) => {
 
-    const [year,setYear] = useState();
-    const [sal,setSal] = useState();
-    const [raise,setRaise] = useState();
-    const [toYear,setToYear] = useState();
+    const [year,setYear] = useState('');
+    const [sal,setSal] = useState('');
+    const [raise,setRaise] = useState('');
+    const [toYear,setToYear] = useState('');
 
     const addRow=()=>{
         console.log("position"+props.position);
